@@ -1,0 +1,65 @@
+C++ WITH DSA (data structure & algorithm)
+
+dsa algo used where while programming, developing??
+what is dsa?? (its a diff way of organizing data on your computer, that can be used effectively.)
+where to apply dsa??
+what is the role of time complexity in the program? (measure the  performances of program and algorithm)
+
+big o - it is a complexity that is going to be less / equal to the worst case. (worst case)
+big- omega - it is complexity that is going to be atleast more than the best case. (best case)
+big-theta - it is complexity that is within bounds of the worst and the best cases. (average case)
+
+complexity
+        o(1) - constant - accessing specific ele in array
+        o(N) - linear - loop through array ele
+arr=[1, 2, 3, 4, 5];
+for ele in array :  print(ele)
+        o(logN) - logarithmic - find ele in sorted array
+arr= [1, 2, 3, 4, 5]
+for index in range (0, len(array), 3) : print(array[index])
+        o(N^2) - quadratic -looking ar a every index in array twice
+arr=[1, 2, 3, 4, 5]
+for x in arr : for y in arr : print(x,y)
+        o(2^n) - exponential - double recurssion in fibonacci
+                   def fibonacci (n) :
+                   if n<=1 :  return n
+                   return fibonacci (n-1) + fibonacci (n-2)
+
+linear search pseudocode
+        - Create function with two parameters which are an array and a value
+
+        - Loop through the array and check if the current array element is equal to the value
+
+        - If it is return the index at which the element is found
+
+        - If the value is never found return  -1
+
+
+#include <iostream>
+using namespace std;
+int linearSearch(int arr[], int size, int target)
+{
+    for (int i=0; i<size; i++)
+    {
+        if(arr[i]==target)       //if 7==7
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+int main()
+{
+    int arr[]= {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+    int size = sizeof(arr) / sizeof(arr[0]);         //size=10
+    int target=7;
+    int result=linearSearch(arr, size, target);           //calling function
+    if(result!=-1)
+    {
+        cout<<"element found at index no.= "<<result<<endl;
+    }
+    else
+    {
+        cout<<"element not found "<<endl;     //total time complexity = o(n)
+    }
+}
