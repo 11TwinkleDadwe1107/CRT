@@ -1,0 +1,122 @@
+#include<iostream>
+using namespace std;
+class queue
+{
+    private:
+    int front;
+    int rear;
+    int capacity;
+    int *arr;
+public:
+    queue(int size)
+    {
+        capacity=size;
+        front=0;
+        rear=-1;
+        arr=new int[capacity];
+    }
+    bool isEmpty()
+    {
+        return rear < front;
+    }
+    bool isFull()
+    {
+        return rear==capacity-1;
+    }
+    void enqueue(int value)
+    {
+        if(isFull())
+        {
+            cout<<"queue overflow! cannot insert "<<value<<endl;
+            return;
+        }
+        arr[++rear]=value;
+        cout<<value<<" inserted into queue"<<endl;
+    }
+    void dequeue()
+    {
+        if(isEmpty())
+        {
+            cout<<"queue underflow! queue is empty "<<endl;
+            return;
+        }
+        cout<<arr[front++]<<" removed from queue"<<endl;
+    }
+    void display() 
+    {
+        if(isEmpty())
+        {
+            cout<<"queue is empty"<<endl;
+            return;
+        }
+        for(int i=front;i<=rear;i++)
+        {
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+    }
+    void frontvalue()
+    {
+        if(isEmpty())
+        {
+            cout<<"queue is empty "<<endl;
+            return;
+        }
+        cout<<"front value= "<<arr[front]<<endl;
+    }
+    ~queue()
+    {
+        delete []arr;
+    }
+};
+
+int main()
+{
+    queue obj(5);
+    cout<<"queue is created"<<endl;
+    while(true)
+    {
+        int choice;
+        cout<<"1.enqueue"<<endl;
+        cout<<"2.display"<<endl;
+        cout<<"3.dequeue"<<endl;
+        cout<<"4.front value"<<endl;
+        cout<<"5.delete queue"<<endl;
+        cout<<"6.exit"<<endl;
+        cout<<"enter your choice"<<endl;
+        cin>>choice;
+        if(choice==1)
+        {
+            int val;
+            cout<<"enter the element to insert into queue"<<endl;
+            cin>>val;
+            obj.enqueue(val);
+        }
+            else if(choice==3)
+            {
+                obj.dequeue();
+            }
+                else if(choice==2)
+                {
+                    obj.display();
+                }
+                    else if(choice==4)
+                    {
+                        obj.frontvalue();
+                    }
+                        else if(choice==5)
+                        {
+                            obj.~queue();
+                            cout<<"queue is deleted"<<endl;
+                        }
+                            else if(choice==6)
+                            {
+                                cout<<"exiting..."<<endl;
+                                break;
+                            }
+                                else
+                                {
+                                    cout<<"invalid choice! please try again"<<endl;
+                                }
+    }
+}
