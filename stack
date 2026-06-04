@@ -1,0 +1,121 @@
+#include<iostream>
+using namespace std;
+class stack
+{
+    private:
+    int top;
+    int size;
+    int *arr;
+public:
+    stack(int n)
+    {
+        size=n;
+        top=-1;
+        arr=new int[size];
+    }
+    bool isEmpty()
+    {
+        return top==-1;
+    }
+    bool isFull()
+    {
+        return top==size-1;
+    }
+    void push(int value)
+    {
+        if(isFull())
+        {
+            cout<<"stack overflow! cannot push "<<value<<endl;
+            return;
+        }
+        arr[++top]=value;
+        cout<<value<<" pushed into stack"<<endl;
+    }
+    void pop()
+    {
+        if(isEmpty())
+        {
+            cout<<"stack underflow! stack is empty "<<endl;
+            return;
+        }
+        cout<<arr[top--]<<" popped from stack"<<endl;
+    }
+    void peek()
+    {
+        if(isEmpty())
+        {
+            cout<<"stack is empty "<<endl;
+            return;
+        }
+        cout<<"top value= "<<arr[top]<<endl;
+    }
+    void display()
+    {
+        if(isEmpty())
+        {
+            cout<<"stack is empty "<<endl;
+            return;
+        }
+        for(int i=top;i>=0;i--)
+        {
+            cout<<arr[i]<<" ";
+        }
+        cout<<endl;
+    }
+    ~stack()
+    {
+        delete[] arr;
+        cout<<"stack memory deallocated"<<endl;
+    }
+
+int main()
+{
+    stack s(5);
+    cout<<"stack has created size= 5"<<endl;
+    while(true)
+    {
+        int choice;
+        cout<<"1. push"<<endl;
+        cout<<"2. pop"<<endl;
+        cout<<"3. peek"<<endl;
+        cout<<"4. display"<<endl;
+        cout<<"5. exit"<<endl;
+        cout<<"6. delete stack"<<endl;
+        cout<<"enter your choice: ";
+        cin>>choice;
+        if(choice ==1)
+        {
+            int val;
+            cout<<"enter value to push: ";
+            cin>>val;
+            s.push(val); 
+        }
+        else if(choice ==4)
+        {
+            s.display();
+        }
+        else if(choice ==2)
+        {
+            s.pop();
+        }
+        else if(choice ==3)
+        {
+            s.peek();
+        }
+        else if(choice ==6)
+        {
+            s.~stack();
+        }
+        else if(choice ==5)
+        {
+            cout<<"exiting..."<<endl;
+            break;
+        }
+        else
+        {
+            cout<<"invalid choice"<<endl;
+        }
+
+    }
+
+}
