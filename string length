@@ -1,0 +1,16 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main()
+{
+    char a[20]="ashish";
+    char b[20]={'a', 's', 'h', 'i', 's', 'h', '\0'};
+    char c[20];
+    cout<<"enter string: "<<endl;
+    cin>>c;
+    
+    cout<<"length of string a is: "<<strlen(a)<<endl;
+    cout<<"length of string b is: "<<strlen(b)<<endl;
+    cout<<"length of string c is: "<<strlen(c)<<endl;
+    return 0;
+}
