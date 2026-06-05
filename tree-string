@@ -1,0 +1,16 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+int main()
+{
+    char str1[50], str2[50];
+    cout<<"ether the first string"<<endl;
+    cin>>str1;
+    cout<<"ether the second string"<<endl;
+    cin>>str2;
+    if(strcmp(str1, str2)==0)
+    cout<<"both strings are same"<<endl;
+    else
+    cout<<"both strings are different"<<endl;
+    return 0;
+}
