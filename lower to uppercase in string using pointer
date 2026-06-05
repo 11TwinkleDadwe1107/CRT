@@ -1,0 +1,23 @@
+#include<iostream>
+using namespace std;
+void mystrlwr(char *s1);
+int main()
+{
+    char ch[20];
+    cout<<"enter any string: "<<endl;
+    cin>>ch;
+    mystrlwr(ch);
+    cout<<"string  in lower case is: "<<ch<<endl;
+    return 0;
+}
+void mystrlwr(char *s1)
+{
+    while(*s1!='\0')
+    {
+        if(*s1>='A' && *s1<='Z')
+        {
+            *s1=*s1+32;
+        }
+        s1++;
+    }
+}
