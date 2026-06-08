@@ -1,0 +1,55 @@
+#include<iostream>
+using namespace std;
+class node
+{
+    public:
+    //var decalaration
+    int data;
+    node* next;
+    //constructor
+    node(int value)
+    {
+        data= value;     //(10)--> (20) --> NULL
+        next= NULL;
+    }
+};
+//insert node at end
+void insertAtEnd(node *&head, int value)
+{
+    node *newNode = new node(value);
+    if(head==NULL)
+    {
+        head = newNode;
+        return;
+    }
+    node *temp= head;
+    while(temp->next != NULL)
+    {
+        temp= temp->next;
+
+    }
+    temp->next=newNode;
+}
+void display(node *head)
+{
+    if(head == NULL)
+     {
+        cout<<"linkedlist is empty "<<endl;
+        return;
+     }
+     node *temp= head;
+     while(temp !=NULL)
+     {
+        cout<<temp->data<<" | "<<temp->next<<"->";
+        temp =temp ->next;
+     }
+}
+int main()
+{
+   node *head= NULL;
+   insertAtEnd(head, 10);      //calling function
+   insertAtEnd(head, 20);
+   insertAtEnd(head, 30);
+   insertAtEnd(head, 40);
+   display(head);
+}
