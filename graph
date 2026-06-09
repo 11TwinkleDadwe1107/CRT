@@ -1,0 +1,66 @@
+#include <iostream>
+using namespace std;
+class Graph{
+  private:
+  bool **adjMatrix;
+  int vertices;
+  
+  
+  public:
+  Graph(int vertices)
+  {
+      //store total vertices
+      this->vertices=vertices;//6
+      //create row dynamically
+      adjMatrix= new bool *[vertices];
+   //create column dynamically
+   for(int i=0; i<vertices;i++)
+   {
+       adjMatrix[i]= new bool[vertices];
+     //initially no edges
+       for(int j=0;j<vertices ;j++)
+       {
+           adjMatrix[i][j]=false;
+       }
+       cout<<"\n";
+   }
+  }
+  
+  void addEdge(int source,int destination)
+  {
+      //since graph is unidirected
+      adjMatrix[source][destination]=true;
+      adjMatrix[source][destination]=true;
+      
+  }
+void display()
+{
+    cout<<"\nAdjacency Matrix\n\n";
+    for(int i=0;i<vertices; i++)
+    {
+        for(int j=0;j<vertices; j++) {
+            cout<<adjMatrix[i][j]<<" ";
+            
+        } 
+        cout<<endl;
+    }
+}
+};
+int main()
+{
+    //create graph eith 6 vertices
+    Graph g(6);//obj
+    //main gate<->library
+    g.addEdge(0,1);
+    //main gate<->canteen
+    g.addEdge(0,2);
+    
+    g.addEdge(1,3);
+    g.addEdge(2,3);
+    g.addEdge(3,4);
+    g.addEdge(1,0);
+    g.addEdge(4,5);
+   g.display();
+
+    return 0;
+}
