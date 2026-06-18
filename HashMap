@@ -1,0 +1,25 @@
+#include<iostream>
+#include<unordered_map>
+using namespace std;
+int main()
+{
+    unordered_map<int, string> students;
+    students[101]="rahul";
+    students[102]="amit";
+    students.insert({103, "priya"});
+    //cout<< students[101];
+    if(students.find(102) != students.end())
+    {
+        cout<<"  found  ";
+    }
+    else
+    {
+        cout<<"  not found  ";
+    }
+    cout<<students.size();
+    if(students.empty())
+    {
+        cout<<"empty";
+    }
+    return 0;
+}
